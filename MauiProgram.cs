@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.Logging;
+using MultiDrive.Database;
 
 namespace MultiDrive
 {
@@ -15,8 +16,10 @@ namespace MultiDrive
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
                 });
 
+            builder.Services.AddDbContext<AppDbContext>();
+
 #if DEBUG
-    		builder.Logging.AddDebug();
+            builder.Logging.AddDebug();
 #endif
 
             return builder.Build();

@@ -1,4 +1,6 @@
-﻿namespace MultiDrive
+﻿using MultiDrive.Database;
+
+namespace MultiDrive
 {
     public partial class App : Application
     {
