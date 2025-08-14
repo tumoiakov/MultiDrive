@@ -24,7 +24,7 @@
 		<ApplicationTitle>MultiDrive</ApplicationTitle>
 
 		<!-- App Identifier -->
-		<ApplicationId>com.companyname.multidrive</ApplicationId>
+		<ApplicationId>com.multidrive.app</ApplicationId>
 
 		<!-- Versions -->
 		<ApplicationDisplayVersion>1.0</ApplicationDisplayVersion>
@@ -67,6 +67,10 @@
 		</PackageReference>
 		<PackageReference Include="Microsoft.Maui.Controls" Version="$(MauiVersion)" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="9.0.0" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <ProjectReference Include="..\MultiDrive.Shared\MultiDrive.Shared.csproj" />
 	</ItemGroup>
 
 </Project>

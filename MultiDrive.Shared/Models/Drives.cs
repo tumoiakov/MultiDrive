@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MultiDrive.Models
+namespace MultiDrive.Shared.Models
 {
-    internal class Drives
+    public class Drives
     {
         DriveInfo[] drivesInfo;
         public DriveInfo[] DrivesInfo
@@ -16,7 +16,7 @@ namespace MultiDrive.Models
 
         public Drives()
         {
-            drivesInfo = new DriveInfo[0];
+            drivesInfo = [];
             UpdateDrives();
         }
 

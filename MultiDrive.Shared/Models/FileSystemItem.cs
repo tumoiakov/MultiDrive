@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MultiDrive.Models
+namespace MultiDrive.Shared.Models
 {
-    internal class FileSystemItem
+    public class FileSystemItem
     {
         public Guid Id { get; set; } // Уникальный идентификатор типа Guid
         public string Name { get; set; } // Имя файла или папки

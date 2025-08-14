@@ -1,5 +1,7 @@
-﻿using Microsoft.Extensions.Logging;
-using MultiDrive.Database;
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
+using MultiDrive.Shared.Database;
+using System;
 
 namespace MultiDrive
 {
@@ -16,7 +18,12 @@ namespace MultiDrive
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
                 });
 
-            builder.Services.AddDbContext<AppDbContext>();
+            string DBFilename = "MultidriveDB.db3";
+            string DBPath = Path.Combine(FileSystem.AppDataDirectory, DBFilename);
+
+            builder.Services.AddDbContext<AppDbContext>(options =>
+                 options.UseSqlite($"Filename={DBPath}"));
+            builder.Services.AddTransient<MainPage>();
 
 #if DEBUG
             builder.Logging.AddDebug();

@@ -1,9 +1,19 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.14.36401.2 d17.14
+VisualStudioVersion = 17.14.36401.2
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MultiDrive", "MultiDrive.csproj", "{D98D1E86-E03B-445F-A5F6-ED84CAD571A9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MultiDrive", "MultiDrive\MultiDrive.csproj", "{D98D1E86-E03B-445F-A5F6-ED84CAD571A9}"
+	ProjectSection(ProjectDependencies) = postProject
+		{4EAEF6BA-5B2F-427E-99A1-C873E6AFF602} = {4EAEF6BA-5B2F-427E-99A1-C873E6AFF602}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MultiDrive.Shared", "MultiDrive.Shared\MultiDrive.Shared.csproj", "{4EAEF6BA-5B2F-427E-99A1-C873E6AFF602}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MultiDrive.Migrator", "MultiDrive.Migrator\MultiDrive.Migrator.csproj", "{80390C03-B088-43F8-964B-40AEC24A68BA}"
+	ProjectSection(ProjectDependencies) = postProject
+		{4EAEF6BA-5B2F-427E-99A1-C873E6AFF602} = {4EAEF6BA-5B2F-427E-99A1-C873E6AFF602}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +25,14 @@ Global
 		{D98D1E86-E03B-445F-A5F6-ED84CAD571A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D98D1E86-E03B-445F-A5F6-ED84CAD571A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D98D1E86-E03B-445F-A5F6-ED84CAD571A9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4EAEF6BA-5B2F-427E-99A1-C873E6AFF602}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4EAEF6BA-5B2F-427E-99A1-C873E6AFF602}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4EAEF6BA-5B2F-427E-99A1-C873E6AFF602}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4EAEF6BA-5B2F-427E-99A1-C873E6AFF602}.Release|Any CPU.Build.0 = Release|Any CPU
+		{80390C03-B088-43F8-964B-40AEC24A68BA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{80390C03-B088-43F8-964B-40AEC24A68BA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{80390C03-B088-43F8-964B-40AEC24A68BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{80390C03-B088-43F8-964B-40AEC24A68BA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

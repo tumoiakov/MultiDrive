@@ -1,11 +1,17 @@
-﻿namespace MultiDrive
+﻿using Microsoft.EntityFrameworkCore;
+using MultiDrive.Shared.Database;
+using System.Diagnostics;
+
+namespace MultiDrive
 {
     public partial class MainPage : ContentPage
     {
         int count = 0;
+        private readonly AppDbContext _context;
 
-        public MainPage()
+        public MainPage(AppDbContext context)
         {
+            _context = context;
             InitializeComponent();
         }
 
@@ -19,6 +25,11 @@
                 CounterBtn.Text = $"Clicked {count} times";
 
             SemanticScreenReader.Announce(CounterBtn.Text);
+            var migrations = _context.Database.GetPendingMigrations().ToList();
+            foreach(var migration in migrations)
+            {
+                Debug.WriteLine($"Applied Migration: {migration}");
+            }
         }
     }
 }
