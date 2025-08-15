@@ -1,6 +1,7 @@
 ﻿
 using Microsoft.EntityFrameworkCore;
 using MultiDrive.Shared.Models;
+using System.Diagnostics;
 
 namespace MultiDrive.Shared.Database
 {
@@ -8,29 +9,33 @@ namespace MultiDrive.Shared.Database
     {
         public DbSet<FileSystemItem> FileSystemItems { get; set; }
 
-        public string DbPath { get; }
+        public string? DbPath { get; }
 
         public AppDbContext()
         {
             DbPath = Path.Combine("../", "MultiDrive.db");
         }
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) {
+            SQLitePCL.Batteries_V2.Init();
         }
 
         public void InitializeDatabase()
         {
-            SQLitePCL.Batteries_V2.Init();
+            bool isTherePendingMigrations = Database.GetPendingMigrations().Any();
 
-            if (Database.GetPendingMigrations().Any())
+            if (isTherePendingMigrations)
             {
-                Database.Migrate();
+                Database.Migrate(); // Apply pending migrations
             }
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             base.OnConfiguring(optionsBuilder);
-            optionsBuilder.UseSqlite($"Data Source={DbPath}");
+            if (!optionsBuilder.IsConfigured)
+            {
+                optionsBuilder.UseSqlite($"Data Source={DbPath}");
+            }
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

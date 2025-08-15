@@ -22,7 +22,7 @@ namespace MultiDrive
             string DBPath = Path.Combine(FileSystem.AppDataDirectory, DBFilename);
 
             builder.Services.AddDbContext<AppDbContext>(options =>
-                 options.UseSqlite($"Filename={DBPath}"));
+                 options.UseSqlite($"Data Source={DBPath}"));
             builder.Services.AddTransient<MainPage>();
 
 #if DEBUG
